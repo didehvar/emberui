@@ -1,22 +1,23 @@
----
 language: node_js
 node_js:
-  - "4"
-
+- '4'
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - npm config set spin false
-  - npm install -g bower
-  - npm install phantomjs-prebuilt
-
+- npm config set spin false
+- npm install -g bower
+- npm install phantomjs-prebuilt
 install:
-  - npm install
-  - bower install
-
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: sDHKli4/ssHRDWXdfnczKUnnXK0KaYS7voX0N2JANu2byy7SC67PDWf0MLWCB4kJxF0mFVbAC8BcZlU8sCkBurCj4TJyhT1jcKpetUfKPducM1YBKkEHclbv4oTYTTPzFaTxf82d/ds2egSuKOaYvSnlEdPPZ91MLRXAwlGzcZFzTaqOdjw5tgd00JFrJWlwi/1l6BcAUjBSht8gPSf/+zvBO+oH71467NcW+Ho+GSeSYFSQ+q+wdpoJ1KsKrBFVCpKPIjqxn8TWv396mBeWWEIdASrQ6uuQm5+8lx7MvF+Zb8QNneoc7LTL558+dmbh+bQA8XCvGz6zeQyJlDciEPlyybYo0tcyf6cI23pkv/+FhDKyjhLVtCnMBXTPSIYroJtTm89bfQPLUcD3NrSOMIz4jdqmTynlV/kmq6OMIKBaoowRALuQRPbmDHnNBEk+uNnZX7VmGLWiJlzz5mIQd9aoWVhwu6+Br82An/VYWZzNPqg/X49xkD+dawLUyrD4+Hb+kwPIjiz4GGxdy1I5GfLbGHKEesOpCJtstnYGHRq4E/m17v0iXXpBSsdIuEsjdHCqx5CC5zqfdVXw5q1iZVzwv/3lP7DpTv/XdAYJ84OnY/+pUAhWRpbItb52tvtLWDD6KBy4nUy9HAYEOrh6uNKeh8C92n6vsPBfuKlij3I=
+  app: enigmatic-harbor-89456
+  on:
+    repo: didehvar/emberui
